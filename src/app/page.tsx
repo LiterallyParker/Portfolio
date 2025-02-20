@@ -1,101 +1,133 @@
-import Image from "next/image";
+"use client";
+import { motion } from "framer-motion";
+import { JSX, useState } from "react";
+import Node from "./components/Node";
+import Next from "./components/Next";
+import Express from "./components/Express";
+import Postgres from "./components/Postgres";
+import Python from "./components/Python";
+import React from "./components/React";
+import Sequelize from "./components/Sequelize";
+import Tailwind from "./components/Tailwind";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const skillComponents: Record<string, JSX.Element> = {
+    "Express.js": <Express />,
+    "Node.js": <Node />,
+    "React.js": <React />,
+    "Next.js": <Next />,
+    "TailwindCSS": <Tailwind />,
+    "PostgreSQL": <Postgres />,
+    "Sequelize": <Sequelize />,
+    "Python": <Python />,
+  }
+
+  return (
+    <main
+      className="relative flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6"
+    >
+
+      <motion.div
+        className="absolute bg-blue-500 opacity-10 z-auto m-0 p-0 rounded-xl"
+        initial={{ width: 1000, height: 500, opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.1, x: [50, -50], y: [50, -50], rotate: [45, -45] }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bg-blue-500 opacity-10 z-auto m-0 p-0 rounded-xl"
+        initial={{ width: 1000, height: 500, opacity: 0, x: -400, y: -400, scale: 0.8 }}
+        animate={{ opacity: 0.1, x: [-50, 50], y: [-50, 50], rotate: [-45, 45] }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+      />
+
+      <div className="flex flex-col md:flex-row items-center md:space-x-16 z-10 select-none">
+        <div className="flex flex-col items-center md:text-left font-serif text-6xl font-bold leading-tight transition-all transform hover:scale-110">
+          <motion.h1
+            className="mb-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Parker
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            Read our docs
-          </a>
+            Townsend
+          </motion.h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="transition-all transform hover:scale-110">
+          <motion.img src="pfp.jpg" alt="" width={250}
+            className="rounded-xl shadow-xl mt-6 md:mt-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </div>
+      </div>
+
+      <motion.hr className="w-2/3 border-gray-700 mt-12 mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      />
+
+      <div className="max-w-2xl text-center space-y-4 z-10">
+        <motion.p
+          className="text-lg leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          Hey there! My name is Parker Townsend. I am a passionate software developer from Lubbock, Texas.
+        </motion.p>
+
+        <motion.p
+          className="text-lg leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          I specialize in building scalable and user-friendly web applications, like the one you are looking at right now! With a background in both frontend and backend technologies, I'm always working on improving my skills and learning new ones to create better solutions.
+        </motion.p>
+      </div>
+
+      <motion.div
+        className="mt-10 bg-gray-800 p-8 rounded-xl shadow-xl z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
+      >
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 text-lg">
+          {[
+            { name: "Express.js", src: "express.svg" },
+            { name: "Node.js", src: "nodedotjs.svg" },
+            { name: "React.js", src: "react.svg" },
+            { name: "Next.js", src: "nextdotjs.svg" },
+            { name: "TailwindCSS", src: "tailwindcss.svg" },
+            { name: "PostgreSQL", src: "postgresql.svg" },
+            { name: "Sequelize", src: "sequelize.svg" },
+            { name: "Python", src: "python.svg" },
+          ].map((skill) => (
+            <li
+              key={skill.name}
+              className="flex items-center gap-3 bg-gray-700 px-5 py-3 rounded-lg transition-all transform hover:scale-110 hover:bg-gray-600 shadow-lg cursor-default"
+              onClick={() => setSelectedSkill(skill.name)}
+            >
+              <img src={skill.src} alt={skill.name} className="w-7 h-7" />
+              {skill.name}
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+
+      <div className="mt-6 w-full max-w-2xl">
+          {selectedSkill && skillComponents[selectedSkill]}
+      </div>
+    </main>
   );
 }
