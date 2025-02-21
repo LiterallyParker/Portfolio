@@ -9,6 +9,7 @@ import Python from "./components/Python";
 import React from "./components/React";
 import Sequelize from "./components/Sequelize";
 import Tailwind from "./components/Tailwind";
+import Image from "next/image";
 
 export default function Home() {
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
@@ -61,12 +62,15 @@ export default function Home() {
           </motion.h1>
         </div>
         <div className="transition-all transform hover:scale-110">
-          <motion.img src="pfp.jpg" alt="" width={250}
-            className="rounded-xl shadow-xl mt-6 md:mt-0"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-          />
+          >
+            <Image src="/pfp.jpg" alt="" width={250} height={0}
+              className="rounded-xl shadow-xl mt-6 md:mt-0"
+            />
+          </motion.div>
         </div>
       </div>
 
@@ -92,7 +96,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         >
-          I specialize in building scalable and user-friendly web applications, like the one you are looking at right now! With a background in both frontend and backend technologies, I'm always working on improving my skills and learning new ones to create better solutions.
+          I specialize in building scalable and user-friendly web applications, like the one you are looking at right now! With a background in both frontend and backend technologies, I&apos;m always working on improving my skills and learning new ones to create better solutions.
         </motion.p>
       </div>
 
@@ -118,7 +122,7 @@ export default function Home() {
               className="flex items-center gap-3 bg-gray-700 px-5 py-3 rounded-lg transition-all transform hover:scale-110 hover:bg-gray-600 shadow-lg cursor-default"
               onClick={() => setSelectedSkill(skill.name)}
             >
-              <img src={skill.src} alt={skill.name} className="w-7 h-7" />
+              <Image src={skill.src} alt={skill.name} width={30} height={0} />
               {skill.name}
             </li>
           ))}
@@ -126,7 +130,7 @@ export default function Home() {
       </motion.div>
 
       <div className="mt-6 w-full max-w-2xl">
-          {selectedSkill && skillComponents[selectedSkill]}
+        {selectedSkill && skillComponents[selectedSkill]}
       </div>
     </main>
   );

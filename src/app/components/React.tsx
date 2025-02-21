@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function React() {
     return (
@@ -22,10 +23,10 @@ export default function React() {
                 <p className="text-center">
                     Here are some examples, pulled from my Capstone project I turned in for my Full-Stack Acadamy final:
                 </p>
-                <img className="w-100 m-2 shadow-lg" src="reactEx1.png" alt="" />
-                <img className="w-100 m-2 shadow-lg" src="reactEx2.png" alt="" />
-                <img className="w-100 m-2 shadow-lg" src="reactEx3.png" alt="" />
-                <img className="w-100 m-2 shadow-lg" src="reactEx4.png" alt="" />
+                <Image className="m-2 shadow-lg" src="/reactEx1.png" alt="" width={600} height={0} />
+                <Image className="m-2 shadow-lg" src="/reactEx2.png" alt="" width={600} height={0} />
+                <Image className="m-2 shadow-lg" src="/reactEx3.png" alt="" width={600} height={0} />
+                <Image className="m-2 shadow-lg" src="/reactEx4.png" alt="" width={600} height={0} />
             </motion.div>
         </div>
     )

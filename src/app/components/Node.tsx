@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image"
 
 export default function Node() {
     return (
@@ -22,7 +23,7 @@ export default function Node() {
                 <p className="text-center w-1/2">
                     This website alone utilizes node for dependency and script management.
                 </p>
-                <img className="w-50" src="nodeEx1.png" alt="" />
+                <Image src="/nodeEx1.png" alt="" width={250} height={0} />
             </motion.div>
             <motion.div
                 className="z-10 flex flex-col items-center"
@@ -33,7 +34,7 @@ export default function Node() {
                 <p className="text-center mb-2">
                     In many other projects, I have also utilized node-schedule, node-mailer, and nodemon for other, more complicated tasks.
                 </p>
-                <img className="w-100" src="nodeEx2.png" alt="" />
+                <Image src="/nodeEx2.png" alt="" width={600} height={0} />
             </motion.div>
         </div>
     )
