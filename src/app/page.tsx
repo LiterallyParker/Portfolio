@@ -30,13 +30,13 @@ export default function Home() {
     >
 
       <motion.div
-        className="absolute bg-blue-500 opacity-10 z-auto m-0 p-0 rounded-xl"
+        className="fixed top-80 left-96 bg-blue-500 opacity-10 z-auto m-0 p-0 rounded-xl"
         initial={{ width: 1000, height: 500, opacity: 0, scale: 0.8 }}
         animate={{ opacity: 0.1, x: [50, -50], y: [50, -50], rotate: [45, -45] }}
         transition={{ duration: 1, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bg-blue-500 opacity-10 z-auto m-0 p-0 rounded-xl"
+        className="fixed top-72 left-96 bg-blue-500 opacity-10 z-auto m-0 p-0 rounded-xl"
         initial={{ width: 1000, height: 500, opacity: 0, x: -400, y: -400, scale: 0.8 }}
         animate={{ opacity: 0.1, x: [-50, 50], y: [-50, 50], rotate: [-45, 45] }}
         transition={{ duration: 1, ease: "easeInOut" }}
