@@ -119,7 +119,18 @@ export default function Home() {
           ].map((skill) => (
             <li
               key={skill.name}
-              className="flex items-center gap-3 bg-gray-700 px-5 py-3 rounded-lg transition-all transform hover:scale-110 hover:bg-gray-600 shadow-lg cursor-default"
+              className="
+              flex items-center
+              gap-3
+              bg-gray-700
+              px-5
+              py-3
+              rounded-lg
+              transition-all
+              transform hover:scale-110
+              hover:bg-gray-600
+              shadow-lg
+              cursor-default"
               onClick={() => setSelectedSkill(skill.name)}
             >
               <Image src={skill.src} alt={skill.name} width={30} height={0} />
